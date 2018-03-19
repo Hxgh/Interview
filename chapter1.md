@@ -1,5 +1,3 @@
-
-
 # 1.HTML&其他基础
 
 #### XHTML和HTML有什么区别？
@@ -28,7 +26,6 @@ JS引擎则：解析和执行javascript来实现网页的动态效果。
 1,使用Trident的是internet explorer，国产的绝大部分浏览器。Trident是就是ie内核
 2,使用Gecko的是Mozilla Firefox，使用 Gecko 内核的浏览器也有不少，如 Netscape MozillaSuite/SeaMonkey 等
 3,使用Presto的是opera，这是目前公认网页浏览速度最快的浏览器内核
-4,使用WebKit的有苹果的safari，谷歌的chrome，还有国产的大部分双核浏览器其中一核就是WebKit
 ```
 
 #### 什么是语义化的HTML?
@@ -72,6 +69,44 @@ sessionStorage 的数据在浏览器关闭后自动删除
 IE8/IE7/IE6支持通过document.createElement方法产生的标签，
 可以利用这一特性让这些浏览器支持HTML5新标签，
 浏览器支持新标签后，还需要添加标签默认的样式：
+```
+
+#### 请描述一下 cookies，sessionStorage 和 localStorage 的区别？
+
+```
+cookie在浏览器和服务器间来回传递。 sessionStorage和localStorage不会
+sessionStorage和localStorage的存储空间更大；
+sessionStorage和localStorage有更多丰富易用的接口；
+sessionStorage和localStorage各自独立的存储空间；
+```
+
+#### 如何实现浏览器内多个标签页之间的通信?
+
+```
+调用localstorge、cookies等本地存储方式
+```
+
+#### 行内元素有哪些？块级元素有哪些？ 空\(void\)元素有那些？
+
+```
+1.CSS规范规定，每个元素都有display属性，确定该元素的类型，每个元素都有默认的display值， 比如div默认display属性值为―block，成为块级元素; span默认display属性值为―inline，是行内元素。
+2.行内元素有：a b span img input select strong(强调的语气) 块级元素有：div ul ol li dl dt dd h1 h2 h3 h4 p 
+3.知名的空元素：<br> <hr> <img> <input> <link> <meta>
+4.鲜为人知的是：<area> <base> <col> <command> <embed> <keygen> <param> <source> <track> <wbr>
+```
+
+#### 页面导入样式时，使用link和@import有什么区别？
+
+```
+（1）link属于XHTML标签，除了加载CSS外，还能用于定义RSS, 定义rel连接属性等作用；而@import是CSS提供的，只能用于加载CSS;
+（2）页面被加载的时，link会同时被加载，而@import引用的CSS会等到页面被加载完再加载;
+（3）import是CSS2.1 提出的，只在IE5以上才能被识别，而link是XHTML标签，无兼容问题。
+```
+
+#### HTML5的离线储存怎么使用，工作原理能不能解释一下？
+
+```
+这些资源就会像cookie一样被存储了下来。之后当网络在处于离线状态下时，浏览器会通过被离线存储的数据进行页面展示。
 ```
 
 
