@@ -319,6 +319,15 @@ div{
 详细介绍URL：http://blog.csdn.net/sjinsa/article/details/70932804?utm_source=itdadao&utm_medium=referral
 ```
 
+#### 什么是CSS 预处理器 / 后处理器？
+
+```
+预处理器例如：LESS、Sass、Stylus，用来预编译Sass或less，增强了css代码的复用性，
+还有层级、mixin、变量、循环、函数等，具有很方便的UI组件模块化开发能力，极大的提高工作效率。
+后处理器例如：PostCSS，通常被视为在完成的样式表中根据CSS规范处理CSS，让其更有效；目前最常做的
+是给CSS属性添加浏览器私有前缀，实现跨浏览器兼容性的问题。
+```
+
 #### 使用 CSS 预处理器吗？喜欢那个？
 
 `SASS (SASS、LESS没有本质区别，只因为团队前端都是用的SASS)`
@@ -545,15 +554,6 @@ WebP格式，谷歌（google）开发的一种旨在加快图片加载速度的�
 写在head标签中利于浏览器逐步渲染（resources downloading->CSSOM+DOM->RenderTree(composite)->Layout->paint）。具体渲染过程请参考
 http://blog.csdn.net/wozaixia...
 写在body标签后由于浏览器以逐行方式对html文档进行解析，当解析到写在尾部的样式表（外联或写在style标签）会导致浏览器停止之前的渲染，等待加载且解析样式表完成之后重新渲染，在windows的IE下可能会出现FOUC现象（即样式失效导致的页面闪烁问题）
-```
-
-#### 什么是CSS 预处理器 / 后处理器？
-
-```
-预处理器例如：LESS、Sass、Stylus，用来预编译Sass或less，增强了css代码的复用性，
-还有层级、mixin、变量、循环、函数等，具有很方便的UI组件模块化开发能力，极大的提高工作效率。
-后处理器例如：PostCSS，通常被视为在完成的样式表中根据CSS规范处理CSS，让其更有效；目前最常做的
-是给CSS属性添加浏览器私有前缀，实现跨浏览器兼容性的问题。
 ```
 
 
