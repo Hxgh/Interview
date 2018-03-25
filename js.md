@@ -705,5 +705,30 @@ function commafy(num) {
 答案二：https://blog.csdn.net/oscar999/article/details/8272798
 ```
 
+#### **如何获取UA？**
+
+```
+　function whatBrowser() {
+
+　　document.Browser.Name.value=navigator.appName;
+
+　　document.Browser.Version.value=navigator.appVersion;
+
+　　document.Browser.Code.value=navigator.appCodeName;
+
+　　document.Browser.Agent.value=navigator.userAgent;
+
+　　}
+```
+
+#### 例举3种强制类型转换和2种隐式类型转换?
+
+```
+强制：（parseInt,parseFloat,number）
+隐式：（== – ===）
+
+详解：https://blog.csdn.net/sinat_29454619/article/details/74075216
+```
+
 
 
