@@ -644,6 +644,36 @@ call()
 http://www.jb51.net/article/84164.htm
 ```
 
+#### **JavaScript 数组\(Array\)对象**
+
+```
+Array 对象属性
+
+constructor 返回对创建此对象的数组函数的引用。
+length 设置或返回数组中元素的数目。
+prototype 使您有能力向对象添加属性和方法。
+
+Array 对象方法
+
+concat() 连接两个或更多的数组，并返回结果。
+join() 把数组的所有元素放入一个字符串。元素通过指定的分隔符进行分隔。
+pop() 删除并返回数组的最后一个元素。  
+shift() 删除并返回数组的第一个元素
+push() 向数组的末尾添加一个或更多元素，并返回新的长度。
+unshift() 向数组的开头添加一个或更多元素，并返回新的长度。
+reverse() 颠倒数组中元素的顺序。
+slice() 从某个已有的数组返回选定的元素
+sort() 对数组的元素进行排序
+splice() 删除元素，并向数组添加新元素。
+toSource() 返回该对象的源代码。
+toString() 把数组转换为字符串，并返回结果。
+toLocaleString() 把数组转换为本地数组，并返回结果。
+valueOf() 返回数组对象的原始值
+
+
+详细：http://www.w3school.com.cn/jsref/jsref_obj_array.asp
+```
+
 #### JavaScript中的作用域与变量声明提升？
 
 ```
@@ -750,7 +780,7 @@ function commafy(num) {
 详解：https://blog.csdn.net/sinat_29454619/article/details/74075216
 ```
 
-####  JavaScript中如何检测一个变量是一个String类型？请写出函数实现
+#### JavaScript中如何检测一个变量是一个String类型？请写出函数实现
 
 ```
 typeof(obj) === "string"
@@ -849,12 +879,12 @@ toUpperCase() – 将整个字符串转成大写字母。
     <input type=”button” onclick=”showInfo(this);” value=”点击一下”/>
 
 （2）构造函数
-    
+
     function Animal(name, color) {
     　　this.name = name;
     　　this.color = color;
     }
-    
+
 （3）input点击，获取值
 
     <input type="button" id="text" value="点击一下" />
@@ -864,7 +894,7 @@ toUpperCase() – 将整个字符串转成大写字母。
             alert(this.value);    //此处的this是按钮元素
         }
     </script>
-    
+
 (4)apply()/call()求数组最值
 
     var  numbers = [5, 458 , 120 , -215 ]; 
