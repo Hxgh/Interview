@@ -371,6 +371,26 @@ map 传了 3 个 (element, index, array)，对应的 radix 不合法导致解析
  sayAlert()//执行结果应该弹出的667
 ```
 
+#### 变量的作用域
+
+```
+要理解闭包，首先必须理解Javascript特殊的变量作用域。
+
+变量的作用域分类：全局变量和局部变量。
+
+特点：
+
+1、函数内部可以读取函数外部的全局变量；在函数外部无法读取函数内的局部变量。
+
+2、函数内部声明变量的时候，一定要使用var命令。如果不用的话，你实际上声明了一个全局变量！
+
+ 5、使用闭包的注意点
+
+1）滥用闭包，会造成内存泄漏：由于闭包会使得函数中的变量都被保存在内存中，内存消耗很大，所以不能滥用闭包，否则会造成网页的性能问题，在IE中可能导致内存泄露。解决方法是，在退出函数之前，将不使用的局部变量全部删除。
+
+2）会改变父函数内部变量的值。所以，如果你把父函数当作对象（object）使用，把闭包当作它的公用方法（Public Method），把内部变量当作它的私有属性（private value），这时一定要小心，不要随便改变父函数内部变量的值。
+```
+
 #### javascript 代码中的"use strict";是什么意思 ? 使用它区别是什么？
 
 ```
@@ -728,6 +748,166 @@ function commafy(num) {
 隐式：（== – ===）
 
 详解：https://blog.csdn.net/sinat_29454619/article/details/74075216
+```
+
+####  JavaScript中如何检测一个变量是一个String类型？请写出函数实现
+
+```
+typeof(obj) === "string"
+typeof obj === "string"
+obj.constructor === String
+```
+
+### 请用js去除字符串空格？
+
+```
+方法一：使用replace正则匹配的方法
+
+去除所有空格: str = str.replace(/\s*/g,"");      
+去除两头空格: str = str.replace(/^\s*|\s*$/g,"");
+去除左空格： str = str.replace( /^\s*/, “”);
+去除右空格： str = str.replace(/(\s*$)/g, "");
+
+str为要去除空格的字符串，实例如下：
+
+var str = " 23 23 ";
+var str2 = str.replace(/\s*/g,"");
+console.log(str2); // 2323
+方法二：使用str.trim()方法
+
+str.trim()局限性：无法去除中间的空格，实例如下：
+
+var str = "   xiao  ming   ";
+var str2 = str.trim();
+console.log(str2);   //xiao  ming 
+同理，str.trimLeft()，str.trimRight()分别用于去除字符串左右空格。
+
+方法三：使用jquery,$.trim(str)方法
+
+$.trim(str)局限性：无法去除中间的空格，实例如下：
+
+var str = "   xiao  ming   ";
+var str2 = $.trim(str)
+console.log(str2);   //  xiao  ming
+```
+
+#### 你如何获取浏览器URL中查询字符串中的参数？
+
+```
+调用JS BOM方法：Location对象
+
+function showWindowHref(){
+    var sHref = window.location.href;
+    var args = sHref.split('?');
+    if(args[0] == sHref){
+        return "";
+    }
+    var arr = args[1].split('&');
+    var obj = {};
+    for(var i = 0;i< arr.length;i++){
+        var arg = arr[i].split('=');
+        obj[arg[0]] = arg[1];
+    }
+    return obj;
+}
+var href = showWindowHref(); // obj
+console.log(href['name']); // xiaoming
+
+其他：
+    http://www.w3school.com.cn/jsref/dom_obj_location.asp
+```
+
+#### 简要说明JS**字符串操作函数**
+
+```
+简要举例：
+
+concat() – 将两个或多个字符的文本组合起来，返回一个新的字符串。
+indexOf() – 返回字符串中一个子串第一处出现的索引。如果没有匹配项，返回 -1 。
+charAt() – 返回指定位置的字符。
+lastIndexOf() – 返回字符串中一个子串最后一处出现的索引，如果没有匹配项，返回 -1 。
+match() – 检查一个字符串是否匹配一个正则表达式
+substr() 函数 -- 返回从string的startPos位置，长度为length的字符串
+substring() – 返回字符串的一个子串。传入参数是起始位置和结束位置。
+slice() – 提取字符串的一部分，并返回一个新字符串。
+replace() – 用来查找匹配一个正则表达式的字符串，然后使用新字符串代替匹配的字符串。
+search() – 执行一个正则表达式匹配查找。如果查找成功，返回字符串中匹配的索引值。否则返回 -1 。
+split() – 通过将字符串划分成子串，将一个字符串做成一个字符串数组。
+length – 返回字符串的长度，所谓字符串的长度是指其包含的字符的个数。
+toLowerCase() – 将整个字符串转成小写字母。
+toUpperCase() – 将整个字符串转成大写字母。
+
+
+详细说明：http://www.w3school.com.cn/jsref/jsref_obj_string.asp
+```
+
+#### 写出3个使用this的典型应用
+
+```
+（1）在html元素事件属性中使用，如：
+
+    <input type=”button” onclick=”showInfo(this);” value=”点击一下”/>
+
+（2）构造函数
+    
+    function Animal(name, color) {
+    　　this.name = name;
+    　　this.color = color;
+    }
+    
+（3）input点击，获取值
+
+    <input type="button" id="text" value="点击一下" />
+    <script type="text/javascript">
+        var btn = document.getElementById("text");
+        btn.onclick = function() {
+            alert(this.value);    //此处的this是按钮元素
+        }
+    </script>
+    
+(4)apply()/call()求数组最值
+
+    var  numbers = [5, 458 , 120 , -215 ]; 
+    var  maxInNumbers = Math.max.apply(this, numbers);  
+    console.log(maxInNumbers);  // 458
+    var maxInNumbers = Math.max.call(this,5, 458 , 120 , -215); 
+    console.log(maxInNumbers);  // 458
+```
+
+#### **比较typeof与instanceof？**
+
+```js
+相同点：JavaScript 中 typeof 和 instanceof 常用来判断一个变量是否为空，或者是什么类型的。
+
+typeof的定义和用法：返回值是一个字符串，用来说明变量的数据类型。
+
+细节：
+
+(1)、typeof 一般只能返回如下几个结果：number,boolean,string,function,object,undefined。
+
+(2)、typeof 来获取一个变量是否存在，如 if(typeof a!="undefined"){alert("ok")}，而不要去使用 if(a) 因为如果 a 不存在（未声明）则会出错。
+
+(3)、对于 Array,Null 等特殊对象使用 typeof 一律返回 object，这正是 typeof 的局限性。
+
+Instanceof定义和用法：instanceof 用于判断一个变量是否属于某个对象的实例。
+
+实例演示：
+
+a instanceof b?alert("true"):alert("false"); //a是b的实例？真:假
+
+var a = new Array(); 
+alert(a instanceof Array);  // true
+alert(a instanceof Object)  // true
+如上，会返回 true，同时 alert(a instanceof Object) 也会返回 true;这是因为 Array 是 object 的子类。
+
+function test(){};
+var a = new test();
+alert(a instanceof test)   // true
+细节：
+
+(1)、如下，得到的结果为‘N’,这里的 instanceof 测试的 object 是指 js 语法中的 object，不是指 dom 模型对象。
+
+if (window instanceof Object){ alert('Y')} else {  alert('N');}  // 'N'
 ```
 
 

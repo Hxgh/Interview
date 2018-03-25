@@ -309,5 +309,109 @@ SEO 网站优化的步骤和技巧有哪些：
 从逻辑角度来看，多线程的意义在于一个应用程序中，有多个执行部分可以同时执行。但操作系统并没有将多个线程看做多个独立的应用，来实现进程的调度和管理以及资源分配。这就是进程和线程的重要区别。
 ```
 
+#### 谈谈垃圾回收机制方式及内存管理
+
+```js
+回收机制方式
+
+1、定义和用法：垃圾回收机制(GC:Garbage Collection),执行环境负责管理代码执行过程中使用的内存。
+
+2、原理：垃圾收集器会定期（周期性）找出那些不在继续使用的变量，然后释放其内存。但是这个过程不是实时的，因为其开销比较大，所以垃圾回收器会按照固定的时间间隔周期性的执行。
+
+3、实例如下：
+
+function fn1() {
+    var obj = {name: 'hanzichi', age: 10};
+}
+function fn2() {
+    var obj = {name:'hanzichi', age: 10};
+   return obj;
+}
+var a = fn1();
+var b = fn2();
+fn1中定义的obj为局部变量，而当调用结束后，出了fn1的环境，那么该块内存会被js引擎中的垃圾回收器自动释放；在fn2被调用的过程中，返回的对象被全局变量b所指向，所以该块内存并不会被释放。
+
+ 4、垃圾回收策略：标记清除(较为常用)和引用计数。
+
+标记清除：
+
+　　定义和用法：当变量进入环境时，将变量标记"进入环境"，当变量离开环境时，标记为："离开环境"。某一个时刻，垃圾回收器会过滤掉环境中的变量，以及被环境变量引用的变量，剩下的就是被视为准备回收的变量。
+
+　　到目前为止，IE、Firefox、Opera、Chrome、Safari的js实现使用的都是标记清除的垃圾回收策略或类似的策略，只不过垃圾收集的时间间隔互不相同。
+
+引用计数：
+
+　　定义和用法：引用计数是跟踪记录每个值被引用的次数。
+
+　　基本原理：就是变量的引用次数，被引用一次则加1，当这个引用计数为0时，被视为准备回收的对象。
+
+ 内存管理
+
+1、什么时候触发垃圾回收？
+
+垃圾回收器周期性运行，如果分配的内存非常多，那么回收工作也会很艰巨，确定垃圾回收时间间隔就变成了一个值得思考的问题。
+
+IE6的垃圾回收是根据内存分配量运行的，当环境中的变量，对象，字符串达到一定数量时触发垃圾回收。垃圾回收器一直处于工作状态，严重影响浏览器性能。
+
+IE7中，垃圾回收器会根据内存分配量与程序占用内存的比例进行动态调整，开始回收工作。
+
+2、合理的GC方案：(1)、遍历所有可访问的对象; (2)、回收已不可访问的对象。
+
+3、GC缺陷：(1)、停止响应其他操作；
+
+4、GC优化策略：(1)、分代回收（Generation GC）;(2)、增量GC
+
+开发过程中遇到的内存泄露情况，如何解决的？
+
+1、定义和用法：
+
+内存泄露是指一块被分配的内存既不能使用，又不能回收，直到浏览器进程结束。C#和Java等语言采用了自动垃圾回收方法管理内存，几乎不会发生内存泄露。我们知道，浏览器中也是采用自动垃圾回收方法管理内存，但由于浏览器垃圾回收方法有bug，会产生内存泄露。
+
+2、内存泄露的几种情况:
+
+(1)、当页面中元素被移除或替换时，若元素绑定的事件仍没被移除，在IE中不会作出恰当处理，此时要先手工移除事件，不然会存在内存泄露。
+
+实例如下:
+
+<div id="myDiv">
+    <input type="button" value="Click me" id="myBtn">
+</div>
+<script type="text/javascript">
+    var btn = document.getElementById("myBtn");
+    btn.onclick = function(){
+        document.getElementById("myDiv").innerHTML = "Processing...";
+    }
+</script>
+解决方法如下：
+
+<div id="myDiv">
+    <input type="button" value="Click me" id="myBtn">
+</div>
+<script type="text/javascript">
+    var btn = document.getElementById("myBtn");
+    btn.onclick = function(){
+    btn.onclick = null;
+        document.getElementById("myDiv").innerHTML = "Processing...";
+    }
+</script>
+(2)、由于是函数内定义函数，并且内部函数--事件回调的引用外暴了，形成了闭包。闭包可以维持函数内局部变量，使其得不到释放。
+实例如下：
+function bindEvent(){
+    var obj=document.createElement("XXX");
+    obj.onclick=function(){
+        //Even if it's a empty function
+    }
+}
+解决方法如下：
+
+function bindEvent(){
+    var obj=document.createElement("XXX");
+    obj.onclick=function(){
+         //Even if it's a empty function
+    }
+    obj=null;
+}
+```
+
 
 
