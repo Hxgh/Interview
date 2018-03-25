@@ -22,5 +22,11 @@ Object.is 应被认为有其特殊的用途，而不能用它认为它比其它�
 详解：https://www.zhihu.com/question/29789315/answer/45624154
 ```
 
+#### promise方法的理解和使用
+
+```
+https://www.jianshu.com/p/063f7e490e9a
+```
+
 
 
