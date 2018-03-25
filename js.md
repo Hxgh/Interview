@@ -613,12 +613,12 @@ add.call(sub,3,1);
 答案二：
 
 apply()
-	接收两个参数
-		在其中运行的函数的作用域
-		参数数组：可以是Array的实例，也可以是arguments
-	在严格模式下，this值不会转型为window，除非明确把函数添加到某个对象或者apply()或call()，否则this的值将是undefined
+    接收两个参数
+        在其中运行的函数的作用域
+        参数数组：可以是Array的实例，也可以是arguments
+    在严格模式下，this值不会转型为window，除非明确把函数添加到某个对象或者apply()或call()，否则this的值将是undefined
 call()
-	和apply()作用相同，但是从第二个参数开依次列举出来
+    和apply()作用相同，但是从第二个参数开依次列举出来
 ```
 
 #### JS 数组和对象有哪些原生方法，列举一下？
@@ -637,21 +637,11 @@ http://www.jb51.net/article/84164.htm
 https://segmentfault.com/a/1190000003114255
 ```
 
-#### jQuery 遍历
-
-```
-parent() 方法返回被选元素的直接父元素。
-
-parents() 方法返回被选元素的所有祖先元素，它一路向上直到文档的根元素 (<html>)     .parents("标签")的那个父
-
-parentsUntil() 方法返回介于两个给定元素之间的所有祖先元素。
-```
-
 #### 如何编写高性能的Javascript？
 
 ```
 答案一：https://segmentfault.com/a/1190000003908314
-答案二：
+答案二：http://developer.51cto.com/art/200906/131335.htm
 ```
 
 #### 那些操作会造成内存泄漏？

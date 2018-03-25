@@ -4,4 +4,5 @@
 * [HTML](chapter1.md)
 * [CSS](css.md)
 * [JS](js.md)
+* JQuery
 
