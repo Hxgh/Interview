@@ -135,6 +135,24 @@ CSS3 弹性盒（ Flexible Box 或 flexbox），是一种当页面需要适应�
 在布局上有了比以前更加灵活的空间。
 ```
 
+###### _属性值_
+
+|  |
+| :--- |
+
+
+| 值 | 描述 |
+| :--- | :--- |
+| _flex-grow_ | 一个数字，规定项目将相对于其他灵活的项目进行扩展的量。 |
+| _flex-shrink_ | 一个数字，规定项目将相对于其他灵活的项目进行收缩的量。 |
+| _flex-basis_ | 项目的长度。合法值："auto"、"inherit" 或一个后跟 "%"、"px"、"em" 或任何其他长度单位的数字。 |
+| auto | 与 1 1 auto 相同。 |
+| none | 与 0 0 auto 相同。 |
+| initial | 设置该属性为它的默认值，即为 0 1 auto。请参阅[_initial_](http://www.runoob.com/cssref/css-initial.html)。 |
+| inherit | 从父元素继承该属性。请参阅[_inherit_](http://www.runoob.com/cssref/css-inherit.html)。 |
+
+#### 
+
 #### 用纯CSS创建一个三角形的原理是什么？
 
 ```
