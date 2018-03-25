@@ -535,5 +535,143 @@ define(['./a', './b'], function(a, b) { // 依赖必须一开始就写好
 （待完善）
 ```
 
+#### 谈一谈你对ECMAScript6的了解？
+
+```
+详解：http://wiki.jikexueyuan.com/project/es-six-deeply/an-introduction.html
+```
+
+#### ECMAScript6 怎么写class么，为什么会出现class这种东西?
+
+```
+详解：https://www.zhihu.com/question/29789315/answer/45624154
+```
+
+#### 异步加载JS的方式有哪些？
+
+```
+答案一：
+
+(1) defer，只支持IE
+
+(2) async：
+
+(3) 创建script，插入到DOM中，加载完毕后callBack
+
+答案二：
+
+https://segmentfault.com/a/1190000008473682
+```
+
+#### documen.write和 innerHTML的区别？
+
+```
+document.write只能重绘整个页面
+
+innerHTML可以重绘页面的一部分
+```
+
+#### DOM操作——怎样添加、移除、移动、复制、创建和查找节点?
+
+```
+（1）创建新节点
+  createDocumentFragment()    //创建一个DOM片段
+  createElement()   //创建一个具体的元素
+  createTextNode()   //创建一个文本节点
+（2）添加、移除、替换、插入
+  appendChild()
+  removeChild()
+  replaceChild()
+  insertBefore() //在已有的子节点前插入一个新的子节点
+（3）查找
+  getElementsByTagName()    //通过标签名称
+  getElementsByName()    //通过元素的Name属性的值(IE容错能力较强，会得到一个数组，其中包括id等于name值的)
+  getElementById()    //通过元素Id，唯一性
+```
+
+#### .call\(\) 和 .apply\(\) 的区别？
+
+```
+答案一：
+
+例子中用 add 来替换 sub，add.call(sub,3,1) == add(3,1) ，所以运行结果为：alert(4);
+
+注意：js 中的函数其实是对象，函数名是对 Function 对象的引用。
+
+function add(a,b)
+{
+    alert(a+b);
+}
+
+function sub(a,b)
+{
+    alert(a-b);
+}
+
+add.call(sub,3,1);
+
+答案二：
+
+apply()
+	接收两个参数
+		在其中运行的函数的作用域
+		参数数组：可以是Array的实例，也可以是arguments
+	在严格模式下，this值不会转型为window，除非明确把函数添加到某个对象或者apply()或call()，否则this的值将是undefined
+call()
+	和apply()作用相同，但是从第二个参数开依次列举出来
+```
+
+#### JS 数组和对象有哪些原生方法，列举一下？
+
+```
+答案一：
+参考mindnode文件，object，array，data，function等不同的方式
+
+答案二：
+http://www.jb51.net/article/84164.htm
+```
+
+#### JavaScript中的作用域与变量声明提升？
+
+```
+https://segmentfault.com/a/1190000003114255
+```
+
+#### jQuery 遍历
+
+```
+parent() 方法返回被选元素的直接父元素。
+
+parents() 方法返回被选元素的所有祖先元素，它一路向上直到文档的根元素 (<html>)     .parents("标签")的那个父
+
+parentsUntil() 方法返回介于两个给定元素之间的所有祖先元素。
+```
+
+#### 如何编写高性能的Javascript？
+
+```
+答案一：https://segmentfault.com/a/1190000003908314
+答案二：
+```
+
+#### 那些操作会造成内存泄漏？
+
+```
+内存泄漏：指一块被分配的内存既不能使用，又不能回收，直到浏览器进程结束。
+
+1）意外的全局变量引起的内存泄露
+2）闭包引起的内存泄露
+3）没有清理的DOM元素引用
+4）被遗忘的定时器或者回调
+5）子元素存在引起的内存泄露
+6）IE7/8引用计数使用循环引用产生的问题
+
+怎样避免内存泄露？
+
+1）减少不必要的全局变量，或者生命周期较长的对象，及时对无用的数据进行垃圾回收；
+2）注意程序逻辑，避免“死循环”之类的；
+3）避免创建过多的对象  原则：不用了的东西要及时归还。
+```
+
 
 
