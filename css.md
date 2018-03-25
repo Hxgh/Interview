@@ -597,5 +597,52 @@ border-box:元素指定的任何内边距和边框都将在已设定的宽度和
 详解：http://www.w3school.com.cn/cssref/pr_box-sizing.asp
 ```
 
+#### 高度不固定的容器的上下左右的居中显示。\(重点是垂直居中\)
+
+```css
+1）将父级容器设置为：
+
+display:table-cell;
+
+vertical-align:middle;
+
+text-align:center;
+2)使用flex
+
+display: flex;
+
+justify-content:center;
+
+align-items:Center;
+
+记住上面两个，还有其他的具体的参考下面的链接地址：http://www.cnblogs.com/hutuzhu/p/4450850.html
+```
+
+#### margin塌陷的问题，以及margin重叠问题。
+
+```
+相信很多人都知道解决父容器不设置margin的值，只给里面的div设置一个margin-top，会有什么样的结果，就是父容器会margin-top == 子容器的margin-top值。
+
+解决方案：
+
+1）给父容器设置border：1px solid transparent;
+
+2)padding>0
+
+3)float
+
+4)position:absolute;
+
+5)display:inline-block;
+
+6)overflow:hidden/auto;
+
+另外一种情况：
+
+两个div，上面的margin-bottom：30px;下面的：margin-top:10px;中间的间距是30px;取最大的。
+
+解决办法：只设置一个的要么margin-top；要么margin-bottom
+```
+
 
 
