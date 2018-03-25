@@ -321,6 +321,19 @@ div{
 方法2：父元素BFC(ie8+)或haslayout(ie6/ie7)移动端的布局用过媒体查询吗？
 
 详细介绍URL：http://blog.csdn.net/sjinsa/article/details/70932804?utm_source=itdadao&utm_medium=referral
+
+其他答案：
+    (Q1)
+　　       （1）父级div定义height。
+　　       （2）结尾处加空div标签clear:both。
+　　       （3）父级div定义伪类:after和zoom。
+　　       （4）父级div定义overflow:hidden。
+　　       （5）父级div定义overflow:auto。
+　　       （6）父级div也浮动，需要定义宽度。
+　　       （7）父级div定义display:table。
+　　       （8）结尾处加br标签clear:both。
+
+　　 (Q2) 比较好的是第3种方式，好多网站都这么用。
 ```
 
 #### 什么是CSS 预处理器 / 后处理器？
