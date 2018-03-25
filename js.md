@@ -527,7 +527,18 @@ define(['./a', './b'], function(a, b) { // 依赖必须一开始就写好
 })
 ```
 
-#### requireJS的核心原理是什么？（如何动态加载的？如何避免多次加载的？如何缓存的？）
+#### 谈谈你对 JavaScript 中的模块规范 CommonJS、AMD、CMD 的了解？
+
+```
+//个人拙见
+|   CommonJS   |   AMD   |   CMD   |
+|--------------|---------|---------|
+|    Node.js   |RequireJS|  SeaJS  |
+
+详解：
+    浅析JS中的模块规范（CommonJS，AMD，CMD）：https://www.2cto.com/kf/201411/348276.html
+    关于 CommonJS AMD CMD UMDrequireJS的核心原理是什么？：https://my.oschina.net/felumanman/blog/263330?p=1
+```
 
 ```
 核心原理，就是定义了一个 define 的全局函数，别人会用它这个全局函数。
@@ -661,6 +672,55 @@ https://segmentfault.com/a/1190000003114255
 1）减少不必要的全局变量，或者生命周期较长的对象，及时对无用的数据进行垃圾回收；
 2）注意程序逻辑，避免“死循环”之类的；
 3）避免创建过多的对象  原则：不用了的东西要及时归还。
+```
+
+#### 什么是“前端路由”?什么时候适合使用“前端路由”?“前端路由”有哪些优点和缺点
+
+```
+简单的说，我们打开一个页面，这个页面是个单页应用：http://www.this-is-a-spa.com/
+所以它仅仅只有一个页面，不过作者却做了好几个 URL：
+
+http://www.this-is-a-spa.com/a
+http://www.this-is-a-spa.com/b
+http://www.this-is-a-spa.com/c
+...
+这些 URL 不会直接传给服务器，而是会被浏览器消化处理掉.
+
+这样做，我们可以：
+
+当浏览器读取到其中一个注册到前端路由中的 URL 请求时，比如 http://www.this-is-a-spa.com/a 时，可以触发预先写好的事件 A，所以当访问到这个 URL 后就可以直接触发到事件。在编写的时候可以用 <a href="/a">Event A</a> 来触发事件，而可以不用 addEventListener("click", ...) 这种写法，当项目逻辑比较复杂的时候，这种组织方式比写一大堆事件注册要好很多.（当然上 SPA 一般都用到了框架，这种方式只是一种选择）
+用户可以收藏 http://www.this-is-a-spa.com/a 至收藏夹，打开后直接触发 /a 的事件（然后就自动加载数据或是什么别的事情），而没有做前端路由的 SPA 则达不到这样的效果，其 URL 从头到尾都是不变的.
+所以~
+
+什么是前端路由：路由交给浏览器处理就算是吧？有没有教科书式的标准定义？
+什么时候适合用：SPA 就可以用，其实还是看产品需求.
+优点：如上；
+缺点：前端开发麻烦？还需要学习一个？如果也算缺点吧.
+```
+
+#### 怎样用js实现千位分隔符？
+
+```
+正则 + replace
+
+function commafy(num) {
+    num = num + '';
+    var reg = /(-?d+)(d{3})/;
+    if (reg.test(num)) {
+        num = num.replace(reg, '$1,$2');
+    }
+    return num;
+}
+```
+
+#### 检测浏览器版本有哪些方式？
+
+```
+答案一：功能检测、userAgent 特征检测
+比如：navigator.userAgent
+//"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.101 Safari/537.36"
+
+答案二：https://blog.csdn.net/oscar999/article/details/8272798
 ```
 
 
