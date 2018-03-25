@@ -540,24 +540,6 @@ define(['./a', './b'], function(a, b) { // 依赖必须一开始就写好
     关于 CommonJS AMD CMD UMDrequireJS的核心原理是什么？：https://my.oschina.net/felumanman/blog/263330?p=1
 ```
 
-```
-核心原理，就是定义了一个 define 的全局函数，别人会用它这个全局函数。
-
-（待完善）
-```
-
-#### 谈一谈你对ECMAScript6的了解？
-
-```
-详解：http://wiki.jikexueyuan.com/project/es-six-deeply/an-introduction.html
-```
-
-#### ECMAScript6 怎么写class么，为什么会出现class这种东西?
-
-```
-详解：https://www.zhihu.com/question/29789315/answer/45624154
-```
-
 #### 异步加载JS的方式有哪些？
 
 ```

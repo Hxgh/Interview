@@ -10,5 +10,17 @@ Object.is 在三等号判等的基础上特别处理了 NaN 、-0 和 +0 ，保�
 Object.is 应被认为有其特殊的用途，而不能用它认为它比其它的相等对比更宽松或严格。
 ```
 
+#### 谈一谈你对ECMAScript6的了解？
+
+```
+详解：http://wiki.jikexueyuan.com/project/es-six-deeply/an-introduction.html
+```
+
+#### ECMAScript6 怎么写class么，为什么会出现class这种东西?
+
+```
+详解：https://www.zhihu.com/question/29789315/answer/45624154
+```
+
 
 
