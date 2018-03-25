@@ -195,7 +195,6 @@ $(selector).removeAttr(class);删除class这个属性；
 #### JQuery有几种选择器?
 
 ```js
-
 (2)、层次选择器：parent > child，prev + next ，prev ~ siblings
 
 (3)、基本过滤器选择器：:first，:last ，:not ，:even ，:odd ，:eq ，:gt ，:lt
@@ -221,7 +220,7 @@ delegate()会在以下两个情况下使用到：
 1、如果你有一个父元素，需要给其下的子元素添加事件，这时你可以使用delegate()了，代码如下：
 
 $("ul").delegate("li", "click", function(){ $(this).hide(); });
- 
+
 2、当元素在当前页面中不可用时，可以使用delegate()
 ```
 
@@ -272,7 +271,7 @@ $.ajax({
     success:function(){},
     error:function(){},
     complete:function(){}
-}); 
+});
 ```
 
 
