@@ -165,7 +165,7 @@ javascript创建对象简单的说,无非就是使用内置对象或各种自定
        alert("我是"+this.name+"，我现在卖"+this.price+"万元");
       }
     var camry =new Car("凯美瑞",27);
-    camry.sell(); 
+    camry.sell();
 ```
 
 #### Javascript作用链域?
@@ -404,6 +404,94 @@ if(a instanceof Person){
 var obj  = {};
 obj.__proto__ = Base.prototype;
 Base.call(obj);
+```
+
+#### Javascript中，有一个函数，执行时对象查找时，永远不会去查找原型，这个函数是？
+
+```
+hasOwnProperty
+
+javaScript中hasOwnProperty函数方法是返回一个布尔值，指出一个对象是否具有指定名称的属性。此方法无法检查该对象的原型链中是否具有该属性；该属性必须是对象本身的一个成员。
+使用方法：
+object.hasOwnProperty(proName)
+其中参数object是必选项。一个对象的实例。
+proName是必选项。一个属性名称的字符串值。
+
+如果 object 具有指定名称的属性，那么JavaScript中hasOwnProperty函数方法返回 true，反之则返回 false。
+```
+
+#### JSON 的了解？
+
+```
+JSON(JavaScript Object Notation) 是一种轻量级的数据交换格式。
+它是基于JavaScript的一个子集。数据格式简单, 易于读写, 占用带宽小
+如：{"age":"12", "name":"back"}
+
+JSON字符串转换为JSON对象:
+var obj =eval('('+ str +')');
+var obj = str.parseJSON();
+var obj = JSON.parse(str);
+
+JSON对象转换为JSON字符串：
+var last=obj.toJSONString();
+var last=JSON.stringify(obj);
+```
+
+#### js延迟加载的方式有哪些？
+
+```
+defer和async、动态创建DOM方式（用得最多）、按需异步载入js
+```
+
+#### Ajax 是什么? 如何创建一个Ajax？
+
+```
+ajax的全称：Asynchronous Javascript And XML。
+异步传输+js+xml。
+所谓异步，在这里简单地解释就是：向服务器发送请求的时候，我们不必等待结果，而是可以同时做其他的事情，等到有了结果它自己会根据设定进行后续操作，与此同时，页面是不会发生整页刷新的，提高了用户体验。
+
+(1)创建XMLHttpRequest对象,也就是创建一个异步调用对象
+(2)创建一个新的HTTP请求,并指定该HTTP请求的方法、URL及验证信息
+(3)设置响应HTTP请求状态变化的函数
+(4)发送HTTP请求
+(5)获取异步调用返回的数据
+(6)使用JavaScript和DOM实现局部刷新
+```
+
+#### 同步和异步的区别?
+
+```
+同步的概念应该是来自于OS中关于同步的概念:不同进程为协同完成某项工作而在先后次序上调整(通过阻塞,唤醒等方式).同步强调的是顺序性.谁先谁后.异步则不存在这种顺序性.
+
+同步：浏览器访问服务器请求，用户看得到页面刷新，重新发请求,等请求完，页面刷新，新内容出现，用户看到新内容,进行下一步操作。
+
+异步：浏览器访问服务器请求，用户正常操作，浏览器后端进行请求。等请求完，页面不刷新，新内容也会出现，用户看到新内容。
+
+（待完善）
+```
+
+#### 如何解决跨域问题?
+
+```
+概念：只要协议、域名、端口有任何一个不同，都被当作是不同的域。
+解决方案：
+    跨域资源共享（CORS）
+    通过jsonp跨域
+    JSONP的优缺点
+    CORS和JSONP对比
+    通过修改document.domain来跨子域
+    使用window.name来进行跨域
+    使用HTML5的window.postMessage方法跨域
+    
+详解：https://segmentfault.com/a/1190000000718840
+```
+
+#### 模块化开发怎么做？
+
+```
+未解决问题！
+
+详解：https://segmentfault.com/a/1190000000733959
 ```
 
 
