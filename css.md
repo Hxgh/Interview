@@ -666,8 +666,37 @@ align-items:Center;
 
 ```
 1.设置border-box width33.3%
-2.flexbox flex：1 
+2.flexbox flex：1
 ```
 
+#### CSS3动画
+
+```
+@keyframes 规则用于创建动画。在 @keyframes 中规定某项 CSS 样式，就能创建由当前样式逐渐改为新样式的动画效果。
+
+当您在 @keyframes 中创建动画时，请把它捆绑到某个选择器，否则不会产生动画效果。
+通过规定至少以下两项 CSS3 动画属性，即可将动画绑定到选择器：
+规定动画的名称
+规定动画的时长
+
+简书 https://www.jianshu.com/p/cfbb2a869092
+```
+
+###### _下面的表格列出了 @keyframes 规则和所有动画属性：_
+
+| 属性 | 描述 | CSS |
+| :--- | :--- | :--- |
+| [@keyframes](http://www.w3school.com.cn/cssref/pr_keyframes.asp) | 规定动画。 | 3 |
+| [animation](http://www.w3school.com.cn/cssref/pr_animation.asp) | 所有动画属性的简写属性，除了 animation-play-state 属性。 | 3 |
+| [animation-name](http://www.w3school.com.cn/cssref/pr_animation-name.asp) | 规定 @keyframes 动画的名称。 | 3 |
+| [animation-duration](http://www.w3school.com.cn/cssref/pr_animation-duration.asp) | 规定动画完成一个周期所花费的秒或毫秒。默认是 0。 | 3 |
+| [animation-timing-function](http://www.w3school.com.cn/cssref/pr_animation-timing-function.asp) | 规定动画的速度曲线。默认是 "ease"。 | 3 |
+| [animation-delay](http://www.w3school.com.cn/cssref/pr_animation-delay.asp) | 规定动画何时开始。默认是 0。 | 3 |
+| [animation-iteration-count](http://www.w3school.com.cn/cssref/pr_animation-iteration-count.asp) | 规定动画被播放的次数。默认是 1。 | 3 |
+| [animation-direction](http://www.w3school.com.cn/cssref/pr_animation-direction.asp) | 规定动画是否在下一周期逆向地播放。默认是 "normal"。 | 3 |
+| [animation-play-state](http://www.w3school.com.cn/cssref/pr_animation-play-state.asp) | 规定动画是否正在运行或暂停。默认是 "running"。 | 3 |
+| [animation-fill-mode](http://www.w3school.com.cn/cssref/pr_animation-fill-mode.asp) | 规定对象动画时间之外的状态。 | 3 |
+
+  
 
 
