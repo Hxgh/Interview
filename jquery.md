@@ -1,7 +1,5 @@
 # 4.jQuery
 
-
-
 #### JQuery的源码看过吗？能不能简单概况一下它的实现原理？
 
 ```
@@ -276,6 +274,14 @@ $.ajax({
     error:function(){},
     complete:function(){}
 });
+```
+
+#### css3动画和jquery动画的差别
+
+```
+css3中的过渡和animation动画都是基于css实现机制的，属于css范畴之内，并没有涉及到任何语言操作。效率略高与jQuery中的animate()函数，但兼容性很差。
+
+jQuery中的animate()函数可以简单的理解为css样式的“逐帧动画”，是css样式不同状态的快速切换的结果。效率略低于css3动画执行效率，但是兼容性好。‍
 ```
 
 
