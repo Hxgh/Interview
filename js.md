@@ -1,7 +1,5 @@
 # 3.JavaScript基础
 
-
-
 #### 介绍js的基本数据类型
 
 ```
@@ -493,17 +491,79 @@ defer和async、动态创建DOM方式（用得最多）、按需异步载入js
 
 #### Ajax 是什么? 如何创建一个Ajax？
 
-```
+```js
 ajax的全称：Asynchronous Javascript And XML。
 异步传输+js+xml。
 所谓异步，在这里简单地解释就是：向服务器发送请求的时候，我们不必等待结果，而是可以同时做其他的事情，等到有了结果它自己会根据设定进行后续操作，与此同时，页面是不会发生整页刷新的，提高了用户体验。
 
-(1)创建XMLHttpRequest对象,也就是创建一个异步调用对象
-(2)创建一个新的HTTP请求,并指定该HTTP请求的方法、URL及验证信息
-(3)设置响应HTTP请求状态变化的函数
-(4)发送HTTP请求
-(5)获取异步调用返回的数据
-(6)使用JavaScript和DOM实现局部刷新
+(1)创建XMLHttpRequest对象,也就是创建一个异步调用对象.
+
+(2)创建一个新的HTTP请求,并指定该HTTP请求的方法、URL及验证信息.
+
+(3)设置响应HTTP请求状态变化的函数.
+
+(4)发送HTTP请求.
+
+(5)获取异步调用返回的数据.
+
+(6)使用JavaScript和DOM实现局部刷新.
+
+var xmlHttp = new XMLHttpRequest();
+ 
+  xmlHttp.open('GET','demo.php','true');
+ 
+  xmlHttp.send()
+ 
+  xmlHttp.onreadystatechange = function(){
+ 
+      if(xmlHttp.readyState === 4 & xmlHttp.status === 200){
+ 
+      }
+ 
+  }
+  
+使用promise封装
+
+function getJSON(url) { 
+    return new Promise(function(resolve, reject) { 
+        var XHR = new XMLHttpRequest(); 
+        XHR.open('GET', url, true); 
+        XHR.send(); 
+   
+        XHR.onreadystatechange = function() { 
+            if (XHR.readyState == 4) { 
+                if (XHR.status == 200) { 
+                    try { 
+                        var response = JSON.parse(XHR.responseText); 
+                        resolve(response); 
+                    } catch (e) { 
+                        reject(e); 
+                    } 
+                } else { 
+                    reject(new Error(XHR.statusText)); 
+                } 
+            } 
+        } 
+    }) 
+} 
+   
+getJSON(url).then(res => console.log(res)); 
+　　
+当前状态readystate
+
+0 代表未初始化。 还没有调用 open 方法
+1 代表正在加载。 open 方法已被调用，但 send 方法还没有被调用
+2 代表已加载完毕。send 已被调用。请求已经开始
+3 代表交互中。服务器正在发送响应
+4 代表完成。响应发送完毕
+
+常用状态码status
+
+404 没找到页面(not found)
+403 禁止访问(forbidden)
+500 内部服务器出错(internal service error)
+200 一切正常(ok)
+304 没有被修改(not modified)(服务器返回304状态，表示源文件没有被修改）
 ```
 
 #### Ajax的优缺点及工作原理？
