@@ -16,3 +16,14 @@ JavaScript：数据类型、面向对象、继承、闭包、插件、作用域�
 
 
 
+注：框架包含
+
+* jQuery
+* webpack
+* grunt/gulp
+* React
+* Vue.js
+* bootstrap
+
+
+
