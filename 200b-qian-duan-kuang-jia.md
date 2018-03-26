@@ -334,7 +334,7 @@ AngularJS 采用“脏值检测”的方式，数据发生变更后，对于所�
 
 Webpack 是一个模块打包工具。它将一堆文件中的每个文件都作为一个模块，找出他们的依赖关系，将它们打包为可部署的静态资源。
 
- 
+
 
 2.Grunt/gulp
 a)构建工具是什么，有什么用
@@ -374,6 +374,14 @@ gulp与webpack的迷思https://segmentfault.com/a/1190000004249679
 Webpack与grunt官网http://webpack.github.io/docs/usage-with-grunt.html
 
 Webpack与gulp官网http://webpack.github.io/docs/usage-with-gulp.html
+```
+
+> #### Git
+
+#### 简要介绍
+
+```
+廖雪峰：https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/
 ```
 
 
