@@ -509,19 +509,19 @@ ajax的全称：Asynchronous Javascript And XML。
 (6)使用JavaScript和DOM实现局部刷新.
 
 var xmlHttp = new XMLHttpRequest();
- 
+
   xmlHttp.open('GET','demo.php','true');
- 
+
   xmlHttp.send()
- 
+
   xmlHttp.onreadystatechange = function(){
- 
+
       if(xmlHttp.readyState === 4 & xmlHttp.status === 200){
- 
+
       }
- 
+
   }
-  
+
 使用promise封装
 
 function getJSON(url) { 
@@ -529,7 +529,7 @@ function getJSON(url) {
         var XHR = new XMLHttpRequest(); 
         XHR.open('GET', url, true); 
         XHR.send(); 
-   
+
         XHR.onreadystatechange = function() { 
             if (XHR.readyState == 4) { 
                 if (XHR.status == 200) { 
@@ -546,7 +546,7 @@ function getJSON(url) {
         } 
     }) 
 } 
-   
+
 getJSON(url).then(res => console.log(res)); 
 　　
 当前状态readystate

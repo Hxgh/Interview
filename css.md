@@ -1,7 +1,5 @@
 # 2.CSS及其相关
 
-
-
 #### 标准的CSS盒子模型？与低版本IE的盒子模型有什么不同的？
 
 ```
@@ -662,6 +660,13 @@ align-items:Center;
 两个div，上面的margin-bottom：30px;下面的：margin-top:10px;中间的间距是30px;取最大的。
 
 解决办法：只设置一个的要么margin-top；要么margin-bottom
+```
+
+#### 实现三个DIV等分排布在一行（考察border-box）
+
+```
+1.设置border-box width33.3%
+2.flexbox flex：1 
 ```
 
 
