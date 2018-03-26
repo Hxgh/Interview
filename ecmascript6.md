@@ -1,7 +1,5 @@
 # 5.ECMAScript6
 
-
-
 #### Object.is\(\) 与原来的比较操作符“ ===”、“ ==”的区别？
 
 ```
@@ -30,6 +28,16 @@ Object.is 应被认为有其特殊的用途，而不能用它认为它比其它�
 
 ```
 https://www.jianshu.com/p/063f7e490e9a
+```
+
+#### JavaScript中var、let、const区别？
+
+```
+使用var声明的变量，其作用域为该语句所在的函数内，且存在变量提升现象；
+使用let声明的变量，其作用域为该语句所在的代码块内，不存在变量提升；
+使用const声明的是常量，在后面出现的代码中不能再修改该常量的值。
+
+http://www.infoq.com/cn/articles/es6-in-depth-let-and-const
 ```
 
 
