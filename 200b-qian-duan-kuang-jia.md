@@ -322,5 +322,59 @@ MVVM作为数据绑定的入口，整合Observer、Compile和Watcher三者，通
 AngularJS 采用“脏值检测”的方式，数据发生变更后，对于所有的数据和视图的绑定关系进行一次检测，识别是否有数据发生了改变。
 ```
 
+> # webpack&grunt/gulp
+
+#### 工具区分
+
+```
+1.webpack
+官网：http://webpack.github.io/docs/
+
+中文文档：http://www.css88.com/doc/webpack2/
+
+Webpack 是一个模块打包工具。它将一堆文件中的每个文件都作为一个模块，找出他们的依赖关系，将它们打包为可部署的静态资源。
+
+ 
+
+2.Grunt/gulp
+a)构建工具是什么，有什么用
+
+知乎回答https://www.zhihu.com/question/35595198
+
+自动化构建工具，就是用来代替手工执行机械重复的事情，解放我们的双手的。
+
+例如，项目使用 CoffeeScript/ES6代替Javascript，但浏览器对这些语言是不支持或者支持得不完整的，要让它在浏览器里运行起来就要执行以下操作：
+
+（1）执行编译命令：xx.coffee->xx.js
+
+（2）执行压缩丑化命令：xx.js->xx.min.js
+
+如果文件代码被修改，那么上面两条命令就要再执行一遍。同样的，也会有用Less写CSS，用Jade写HTML，用webpack/Browserify模块化、为非覆盖式部署的资源加MD5戳等等。自动化构建工具就是用来帮助我们完成这些重复而机械的工作的。
+
+b)gulp VS grunt
+gulp VS grunt知乎专栏https://zhuanlan.zhihu.com/p/20309820
+
+3.webpack与grunt/gulp
+a)不同职能的工具，可以配合使用
+官方对webpack的定位是模块打包器，而gulp/grunt属于构建工具。虽然webpack可以代替gulp的一些功能，但是很明显webpack和gulp/grunt不是一个职能的工具。webpack官方中给出了webpack with gulp/grunt的说明，两者可以配合共同服务于一个项目的。
+
+b)构建gulp/grunt与webpack相配合的前端工作流
+gulp与webpack的迷思https://segmentfault.com/a/1190000004249679
+
+要构建这样一个工作流,首先要理清几个问题
+
+（1）什么工作应该交给gulp，什么工作应该交给webpack
+
+（2）webpack貌似支持增量更新，gulp是否支持增量更新
+
+（3）如何实现live reload
+
+具体配置方法参考官网
+
+Webpack与grunt官网http://webpack.github.io/docs/usage-with-grunt.html
+
+Webpack与gulp官网http://webpack.github.io/docs/usage-with-gulp.html
+```
+
 
 
