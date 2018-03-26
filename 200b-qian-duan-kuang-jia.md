@@ -64,5 +64,189 @@ es6形式的extends React.Component定义的组件
 详解：https://www.cnblogs.com/wonyun/p/5930333.html
 ```
 
+#### React 生命周期AJAX 的问题
+
+```js
+在项目中是把数据请求单独定义一个函数，在进入页面是didMount中加载这个函数，如果有数据更新（也就是你说的刷新列表触发事件）时，再执行这个行数即可
+
+componentDidMount(){
+    this.loadlists()
+}
+loadlists(){
+    ajax请求……
+}
+refreshdata(){
+    this.loadlists()
+}
+```
+
+#### React系列——shouldComponentUpdate避免组件无意义渲染
+
+```
+详解：https://segmentfault.com/a/1190000008656863
+```
+
+#### 调用 setState 之后发生了什么?
+
+```
+（未完成）在代码中调用setState函数之后，React 会将传入的参数对象与组件当前的状态合并，然后触发所谓的调和过程(Reconciliation)。经过调和过程，React 会以相对高效的方式根据新的状态构建 React 元素树并且着手重新渲染整个UI界面。在 React 得到元素树之后，React 会自动计算出新的树与老树的节点差异，然后根据差异对界面进行最小化重渲染。在差异计算算法中，React 能够相对精确地知道哪些位置发生了改变以及应该如何改变，这就保证了按需更新，而不是全部重新渲染。
+```
+
+#### React之key详解
+
+```
+https://blog.csdn.net/hzxonlineok/article/details/78735557
+```
+
+#### react-router的实现原理
+
+```
+https://segmentfault.com/a/1190000004527878
+```
+
+#### Weex和React Native框架对比与选择
+
+```
+https://www.cnblogs.com/valenhua/p/7346682.html
+```
+
+#### ControlledComponent与UncontrolledComponent之间的区别是什么
+
+```
+React 的核心组成之一就是能够维持内部状态的自治组件，不过当我们引入原生的HTML表单元素时（input,select,textarea 等），我们是否应该将所有的数据托管到 React 组件中还是将其仍然保留在 DOM 元素中呢？这个问题的答案就是受控组件与非受控组件的定义分割。受控组件（Controlled Component）代指那些交由 React 控制并且所有的表单数据统一存放的组件。譬如下面这段代码中username变量值并没有存放到DOM元素中，而是存放在组件状态数据中。任何时候我们需要改变username变量值时，我们应当调用setState函数进行修改。
+```
+
+#### 高阶组件 Higher-order Components（HOC）
+
+```
+https://www.jianshu.com/p/d36f5d9211eb
+```
+
+#### React数据流和组件间的通信总结
+
+```
+https://www.cnblogs.com/tim100/p/6050514.html
+```
+
+#### 深入React技术栈：React数据流和生命周期
+
+```js
+数据流
+
+在React中，数据是单向流动的，是从上向下的方向，即从父组件到子组件的方向。
+state和props是其中重要的概念，如果顶层组件初始化props，那么React会向下遍历整颗组件树，重新渲染相关的子组件。其中state表示的是每个组件中内部的的状态，这些状态只在组件内部改变。
+把组件看成是一个函数，那么他接受props作为参数，内部由state作为函数的内部参数，返回一个虚拟dom的实现。
+
+state
+上面说过，state是组件内部的状态，当组件内部使用内置的setState方法，该组件会重新进行渲染。
+注意一下，setState方法是一个异步的方法，在一个生命周期中的所有setState方法会合并操作。
+
+props
+props是React中用来让组件之间相互联系的一种机制，props的传递过程对React是非常直观的，React的单向数据流主要的流动管道就是props，props本身是不可变的，当我们试图改变props的原始值，React会报类型错误的警告。组件的props一定是来源于默认指定的属性或者是从父组件传入的。
+React为props提供了默认配置，通过defaultProps静态变量的方式来定义，当组件被调用的时候，默认值保证渲染后始终有值。
+在React中有一个内置的props--children，代表的是子组件的集合，根据子组件的数量，this.props.children的数据类型而且不一致，当没有子组件的时候为undefined，当有一个的时候为object，当有多个的时候为array。
+
+propTypes
+propTypes是用来规范props的类型和必须的状态，如果组件定义了propTypes，那么在开发环境下会对props进行检查，在生产环境下是不会进行检查的。
+
+生命周期
+
+了解React的生命周期对React的使用会有更好的理解，可以让自己的代码写的更加合理。
+广义的可以将React分为挂载，渲染，卸载这几个阶段，当渲染后的组件需要更新，我们会重新去渲染组件，直至卸载。
+
+import React , {Component, PropTypes} from 'react'
+
+class App extends Component {
+    static propTypes = {
+        
+    }
+    
+    static defaultProps = {
+        
+    }
+    
+    constructor(props) {
+        super(props)
+        this.state = {
+            
+        }
+    }
+    
+    componentWillMount() {
+        
+    }
+    componentDidMount() {
+        
+    }
+    render() {
+        
+    }
+    
+}
+首先我们看下上面的代码结构，propTypes和defaultProps分别代表的是props的类型检查和默认类型值。这两个属性声明为组件的静态属性，所以可以通过类对其进行访问。如： App. defaultProps。
+
+然后可以看到componentWillMount这个方法，会在render方法之前执行，componentDidMount方法会在render方法之后执行，分别代表了渲染前和渲染后的阶段。
+
+以上的过程都只会在组件初始化的时候执行一次，如果是在componentWillMount中执行了setState方法是无意义的，因为组件只渲染一次。在componentDidMount中执行setState方法组件会再次更新，这样初始化的时候就渲染了两次。在必要的情况下可以在componentDidMount执行setState方法。
+
+关于数据的更新
+在React的数据是单向的，数据的更新要么来自父组件的props或者是自身state的改变。
+import React, {Component, PropTypes} from 'react'
+
+class App extends Component {
+    componentWillReceiveProps(nextProps){
+        // this.setState
+    }
+    
+    shouldComponentUpdate(nextProps, nextState){
+        //return true
+    }
+    
+    componentWillUpdate(nextProps, nextState){
+        
+    }
+    
+    componentDidUpdate(preProps, preState){
+        
+    }
+    
+    render() {
+        
+    }
+}
+
+如上关于组件更新的生命周期需要使用到的方法。
+如果是组件自身的state发生改变，那么依次会执行shouldComponentUpdate，componentWillUpdate，render, componentDidUpdate。
+
+shouldComponentUpdate方法，该方法接受需要更新的props和state，方法返回FALSE的时候表示不进行更新，接下来的生命周期方法不会再执行下去，默认返回的是TRUE表示确定进行更新。
+
+注意我们不可以在componentWillUpdate中执行setState方法。
+
+在shouldComponentUpdate方法之前，还有一个componentWillReceiveProps方法，该方法在数据是有父组件的props更新的时候会触发，在此方法中执行setState方法是不会进行二次渲染的。
+```
+
+#### 在React中使用Redux
+
+```
+详细：https://www.jianshu.com/p/06f5285e2620
+```
+
+#### React与Vue，各自的组件更新进行对比，它们有哪些区别？​
+
+```
+答案一：http://caibaojian.com/vue-vs-react.html
+
+答案二：
+        都用了virtual dom的方式, 性能都很好
+
+        ui上都是组件化的写法，开发效率很高
+        
+        vue是双向数据绑定，react是单项数据绑定，当工程规模比较大时双向数据绑定会很难维护
+        
+        vue适合不会持续的  小型的web应用，使用vue.js能带来短期内较高的开发效率. 否则采用react
+
+
+```
+
 
 
