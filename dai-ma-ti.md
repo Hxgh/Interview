@@ -35,13 +35,12 @@ Grunt和Gulp的工作方式是：在一个配置文件中，指明对某些文�
 
 _Grunt和Gulp的工作流程：_
 
-![](https://upload-images.jianshu.io/upload_images/1031000-d0693c06bb3a00e3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700)
+![](https://upload-images.jianshu.io/upload_images/1031000-d0693c06bb3a00e3.png?imageMogr2/auto-orient/strip|imageView2/2/w/700)
 
 Webpack的工作方式是：把你的项目当做一个整体，通过一个给定的主文件（如：index.js），Webpack将从这个文件开始找到你的项目的所有依赖文件，使用loaders处理它们，最后打包为一个（或多个）浏览器可识别的JavaScript文件。
 
-![](https://upload-images.jianshu.io/upload_images/1031000-160bc667d3b6093a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700)
+![](https://upload-images.jianshu.io/upload_images/1031000-160bc667d3b6093a.png?imageMogr2/auto-orient/strip|imageView2/2/w/700)
 
-  
 如果实在要把二者进行比较，Webpack的处理速度更快更直接，能打包更多不同类型的文件。
 
 #### 安装
@@ -51,11 +50,11 @@ Webpack可以使用npm安装，新建一个空的练习文件夹（此处命名�
 ```
 //全局安装
 
-npm install -g webpack
+$ npm install -g webpack
 
 //安装到你的项目目录
 
-npm install --save-dev webpack
+$ npm install --save-dev webpack
 ```
 
 #### 正式使用Webpack前的准备
@@ -63,7 +62,7 @@ npm install --save-dev webpack
 1.在上述练习文件夹中创建一个package.json文件，这是一个标准的npm说明文件，里面蕴含了包括当前项目的依赖模块，自定义的脚本任务等等。在终端中使用`npm init`命令可以自动创建这个package.json文件
 
 ```
-npm init
+$ npm init
 ```
 
 输入这个命令后，终端会问你一系列诸如项目名称，项目描述，作者等信息，不过不用担心，如果你不准备在npm中发布你的模块，这些问题的答案都不重要，回车默认即可。
@@ -73,7 +72,7 @@ npm init
 ```
 // 安装Webpack
 
-npm install --save-dev webpack
+$ npm install --save-dev webpack
 ```
 
 3.回到之前的空文件夹，并在里面创建两个文件夹,app文件夹和public文件夹，app文件夹用来存放原始数据和我们将写的JavaScript模块，public文件夹用来存放之后供浏览器读取的文件（包括使用webpack打包生成的js文件以及一个`index.html`文件）。接下来我们再创建三个文件:
@@ -87,9 +86,7 @@ npm install --save-dev webpack
 
 _此时项目结构如下图所示：_
 
-![](https://upload-images.jianshu.io/upload_images/1031000-976ba1a06fd0702f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/347)
-
-
+![](https://upload-images.jianshu.io/upload_images/1031000-976ba1a06fd0702f.png?imageMogr2/auto-orient/strip|imageView2/2/w/347)
 
 我们在**index.html**文件中写入最基础的html代码，它在这里目的在于引入打包后的js文件（这里我们先把之后打包后的js文件命名为`bundle.js`，之后我们还会详细讲述）。
 
@@ -137,7 +134,7 @@ webpack可以在终端中使用，在基本的使用方法如下：
 # {destination for bundled file}处填写打包文件的存放路径
 # 填写路径的时候不用添加{}
 
-webpack {entry file} {destination for bundled file}
+$ webpack {entry file} {destination for bundled file}
 ```
 
 指定入口文件后，webpack将自动识别项目所依赖的其它文件，不过需要注意的是如果你的webpack不是全局安装的，那么当你在终端中使用此命令时，需要额外指定其在node\_modules中的地址，继续上面的例子，在终端中输入如下命令
@@ -145,15 +142,105 @@ webpack {entry file} {destination for bundled file}
 ```ruby
 # webpack非全局安装的情况
 
-node_modules/.bin/webpack app/main.js public/bundle.js
+$ node_modules/.bin/webpack app/main.js public/bundle.js
 ```
 
 _结果如下：_
 
-![](https://upload-images.jianshu.io/upload_images/1031000-b9e69a58e3518ba7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700)
+![](https://upload-images.jianshu.io/upload_images/1031000-b9e69a58e3518ba7.png?imageMogr2/auto-orient/strip|imageView2/2/w/700)
 
 可以看出`webpack`同时编译了`main.js`和`Greeter,js`,现在打开`index.html`,可以看到如下结果  
-![](https://upload-images.jianshu.io/upload_images/1031000-6cf1ecc41ef8c31d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700)
+![](https://upload-images.jianshu.io/upload_images/1031000-6cf1ecc41ef8c31d.png?imageMogr2/auto-orient/strip|imageView2/2/w/700)
 
 已经成功的使用`Webpack`打包了一个文件了。不过在终端中进行复杂的操作，其实是不太方便且容易出错的，接下来看看Webpack的另一种更常见的使用方法。
+
+_更多详细参见标题地址！！！_
+
+#### WebPack例子：[出自阮一峰](https://github.com/ruanyf/webpack-demos)
+
+首先，install [Webpack](https://www.npmjs.com/package/webpack)和[webpack-dev-server](https://www.npmjs.com/package/webpack-dev-server)
+
+```
+$ npm i -g webpack webpack-dev-server
+```
+
+然后，clone这个项目
+
+```
+$ git clone https://github.com/ruanyf/webpack-demos.git
+```
+
+安装依赖
+
+```
+$ cd webpack-demos
+$ npm install
+```
+
+接下来进行deme演示
+
+```
+$ cd demo01
+$ npm run dev
+```
+
+哇！你的浏览器打开了：[http://127.0.0.1:8080](http://127.0.0.1:8080/)，成功了哎！哈喽什么玩得？什么？你最好再去看看例子。
+
+_webpack类似于Browserify_
+
+```
+$ browserify main.js > bundle.js
+ ＃相当于 
+$ webpack main.js bundle.js
+```
+
+它的配置文件是`webpack.config.js`.
+
+```js
+// webpack.config.js
+module.exports = {
+  entry: './main.js',
+  output: {
+    filename: 'bundle.js'
+  }
+};
+```
+
+有了`webpack.config.js`,你可以不带参数使用webpack
+
+```
+$ webpack
+```
+
+_一些命令行选项：_
+
+* `webpack`– 构建文件
+
+* `webpack -p`– 发布
+
+* `webpack --watch`– 监听项目
+
+* `webpack -d`– 包含 source maps方便调试
+
+* `webpack --colors`– 让打包界面更好看
+
+去构建你的项目, 你可以把启动项写进package.json
+
+```js
+// package.json
+{
+  // ...
+  "scripts": {
+    "dev": "webpack-dev-server --devtool eval --progress --colors",
+    "deploy": "NODE_ENV=production webpack -p"
+  },
+  // ...
+}
+```
+
+
+
+
+
+
 
