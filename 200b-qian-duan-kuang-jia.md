@@ -158,30 +158,30 @@ import React , {Component, PropTypes} from 'react'
 
 class App extends Component {
     static propTypes = {
-        
+
     }
-    
+
     static defaultProps = {
-        
+
     }
-    
+
     constructor(props) {
         super(props)
         this.state = {
-            
+
         }
     }
-    
+
     componentWillMount() {
-        
+
     }
     componentDidMount() {
-        
+
     }
     render() {
-        
+
     }
-    
+
 }
 首先我们看下上面的代码结构，propTypes和defaultProps分别代表的是props的类型检查和默认类型值。这两个属性声明为组件的静态属性，所以可以通过类对其进行访问。如： App. defaultProps。
 
@@ -197,21 +197,21 @@ class App extends Component {
     componentWillReceiveProps(nextProps){
         // this.setState
     }
-    
+
     shouldComponentUpdate(nextProps, nextState){
         //return true
     }
-    
+
     componentWillUpdate(nextProps, nextState){
-        
+
     }
-    
+
     componentDidUpdate(preProps, preState){
-        
+
     }
-    
+
     render() {
-        
+
     }
 }
 
@@ -231,21 +231,22 @@ shouldComponentUpdate方法，该方法接受需要更新的props和state，方�
 详细：https://www.jianshu.com/p/06f5285e2620
 ```
 
-#### React与Vue，各自的组件更新进行对比，它们有哪些区别？​
+#### React与Vue，，它们有哪些区别？​
 
 ```
+各自的组件更新进行对比：https://www.cnblogs.com/heyuqing/p/7526738.html
+
+
 答案一：http://caibaojian.com/vue-vs-react.html
 
 答案二：
         都用了virtual dom的方式, 性能都很好
 
         ui上都是组件化的写法，开发效率很高
-        
+
         vue是双向数据绑定，react是单项数据绑定，当工程规模比较大时双向数据绑定会很难维护
-        
+
         vue适合不会持续的  小型的web应用，使用vue.js能带来短期内较高的开发效率. 否则采用react
-
-
 ```
 
 
