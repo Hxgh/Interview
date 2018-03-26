@@ -40,5 +40,13 @@ https://www.jianshu.com/p/063f7e490e9a
 http://www.infoq.com/cn/articles/es6-in-depth-let-and-const
 ```
 
+#### 平时用了es6的哪些特性，体验如何 和es5有什么不同
+
+```
+let const关键字 箭头函数 字符串模板 class类 模块化 promise
+
+es5 require react.createclass
+```
+
 
 
